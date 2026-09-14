@@ -1,0 +1,142 @@
+# SoulsPlugin configuration
+#
+# license-key must match the value compiled into the plugin jar or the
+# plugin will refuse to start. This is an offline, local string match only
+# -- no network calls are made. Set this to the key you were given; the
+# plugin does NOT ship with a working key pre-filled.
+license-key: "CHANGE-ME"
+
+# How often (in ticks) passive potion effects are silently re-applied to
+# players with an active soul so they never expire (20 ticks = 1 second).
+passive-refresh-interval-ticks: 100
+
+# The absorption cutscene played when a player right-clicks a soul item:
+# blindness + darkness, brown particles swirling around them, then their
+# soul floats in front of them as an item before vanishing and the soul
+# actually becomes active.
+soul-absorption:
+  # Blindness + Darkness are applied for this long (seconds), covering the
+  # whole cutscene so the screen stays dark until it's done.
+  blindness-darkness-duration-seconds: 4.0
+  # How long (in ticks) the brown particle swirl builds up around the player
+  # before the soul item appears. 20 ticks = 1 second.
+  swirl-duration-ticks: 40
+  # How many particles are spawned around the ring each tick during the swirl.
+  swirl-particles-per-tick: 12
+  # Radius of the particle ring around the player.
+  swirl-max-radius: 1.2
+  # How long (in ticks) the floating soul item is shown in front of the
+  # player before it disappears and the soul becomes active.
+  float-duration-ticks: 40
+  # How far in front of the player's eyes the floating item appears.
+  float-distance: 1.3
+  # Vertical offset applied on top of eye height for the floating item.
+  float-height-offset: 0.1
+
+# Per-ability tunables: cooldowns, damage, potion durations/amplifiers,
+# radii, and knockback strengths. Every value here has a matching built-in
+# default (the plugin's original balance), so you only need to list the
+# values you actually want to change -- anything omitted falls back to the
+# default noted in the comment next to it.
+abilities:
+  LEVIATHAN:
+    ability1: # Abalath's Grasp
+      cooldown-seconds: 60
+      radius: 5
+      slowness-duration-seconds: 6
+      slowness-amplifier: 1
+      fatigue-duration-seconds: 6
+      fatigue-amplifier: 0
+      particle-count: 60
+    ability2: # Inkveil
+      cooldown-seconds: 120
+      radius: 15
+      blindness-duration-seconds: 6
+      blindness-amplifier: 2
+      slowness-duration-seconds: 6
+      slowness-amplifier: 2
+      particle-count: 100
+  ABYSSAL:
+    ability1: # Void Scent
+      cooldown-seconds: 90
+      strength-duration-seconds: 4
+      strength-amplifier: 2
+      particle-count: 40
+    ability2: # Shadow Instinct
+      cooldown-seconds: 180
+      radius: 30
+      glowing-duration-seconds: 3
+      particle-count: 80
+  WRAITH:
+    ability1: # Decay Breach
+      cooldown-seconds: 45
+      radius: 7
+      pull-distance: 3.0
+      damage: 3.0
+      particle-count: 20
+      cage-particle-ticks: 15
+    ability2: # Plague Surge
+      cooldown-seconds: 120
+      speed-duration-seconds: 5
+      speed-amplifier: 1
+      crit-count: 3
+      window-seconds: 7
+      crit-damage-multiplier: 1.5
+      particle-count: 40
+  VANGUARD:
+    ability1: # Airstream Sprint (+ the forward dash it enables)
+      cooldown-seconds: 45
+      speed-duration-seconds: 4
+      speed-amplifier: 2
+      window-seconds: 4
+      dash-power: 2.2
+      dash-min-y: 0.3
+      dash-y-multiplier: 1.5
+      dash-hit-radius: 1.8
+      dash-knockback: 1.4
+      dash-particle-ticks: 8
+      particle-count: 30
+    ability2: # Sonic Shockwave
+      cooldown-seconds: 60
+      radius: 4
+      knockback-power: 1.8
+      knockback-y: 0.5
+      slowness-duration-seconds: 2
+      slowness-amplifier: 1
+  TITAN:
+    ability1: # Obsidian Hide
+      cooldown-seconds: 90
+      resistance-duration-seconds: 5
+      resistance-amplifier: 2
+      slowness-duration-seconds: 5
+      slowness-amplifier: 0
+      effect-duration-seconds: 5
+      knockback-reduction-percent: 80
+      particle-count: 60
+    ability2: # Seismic Shock
+      cooldown-seconds: 120
+      radius: 6
+      knockback-power: 2.0
+      knockback-y: 0.7
+      damage: 6.0
+      particle-count: 100
+  ELDRITCH:
+    ability1: # Eldritch Gaze
+      cooldown-seconds: 90
+      tag-duration-seconds: 5
+      particle-count: 20
+      # Applied to the victim of the tagged follow-up melee hit.
+      proc-slowness-duration-seconds: 5
+      proc-slowness-amplifier: 9
+    ability2: # Eldritch Renewal
+      cooldown-seconds: 120
+      regen-duration-seconds: 3
+      regen-amplifier: 2
+      saturation-duration-seconds: 3
+      particle-count: 10
+    ability3: # Void Inversion
+      cooldown-seconds: 120
+      invis-duration-seconds: 3
+      speed-duration-seconds: 3
+      speed-amplifier: 1
+      particle-count: 40

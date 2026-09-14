@@ -1,0 +1,21 @@
+name: SoulsPlugin
+version: '1.0.0'
+main: com.soulsplugin.SoulsPlugin
+api-version: '1.21'
+author: SoulsPlugin
+description: Soul Abilities combat meta and PvP Blood gathering system.
+
+commands:
+  souls:
+    description: Opens the admin soul distribution GUI.
+    usage: /souls
+    permission: soulsplugin.admin
+    permission-message: "§cYou must be a Server Operator to use this command."
+  blood:
+    description: Opens the Blood Fragment consumption menu.
+    usage: /blood
+
+permissions:
+  soulsplugin.admin:
+    description: Allows use of /souls
+    default: op
